@@ -21,10 +21,10 @@ pipeline {
         stage('Setup Virtual Environment') {
             steps {
                 bat """
-                python -m venv ${VENV_DIR}
+                "C:\\Users\\HP 830G8\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m venv ${VENV_DIR}
                 call ${VENV_DIR}\\Scripts\\activate
-                python -m pip install --upgrade pip
-                pip install -r requirements.txt
+                .venv\\Scripts\\python.exe -m pip install --upgrade pip
+                .venv\\Scripts\\python.exe -m pip install -r requirements.txt
                 """
             }
         }
