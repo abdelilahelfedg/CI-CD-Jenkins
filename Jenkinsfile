@@ -12,6 +12,10 @@ pipeline {
         APP_MODULE = "app:app"
     }
 
+    triggers {
+        cron('H/15 * * * *')  // Execute every 15 minutes
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -45,7 +49,13 @@ pipeline {
                         """
                     }
                 }
-                
+                stage('Test File 2') {
+                    steps {
+                        bat """
+                        ${PYTHON} -m pytest test_app_2.py -v
+                        """
+                    }
+                }
             }
         }
 
