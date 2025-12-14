@@ -40,7 +40,7 @@ pipeline {
                     steps {
                         bat """
                         call ${VENV_DIR}\\Scripts\\activate
-                        python -m pytest test_app.py -v
+                        .venv\\Scripts\\python.exe -m pytest test_app.py -v
                         """
                     }
                 }
@@ -48,7 +48,7 @@ pipeline {
                     steps {
                         bat """
                         call ${VENV_DIR}\\Scripts\\activate
-                        python -m pytest test_app_2.py -v
+                        .venv\\Scripts\\python.exe -m pytest test_app_2.py -v
                         """
                     }
                 }
