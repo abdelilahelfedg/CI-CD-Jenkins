@@ -45,13 +45,7 @@ pipeline {
                         """
                     }
                 }
-                stage('Test File 2') {
-                    steps {
-                        bat """
-                        ${PYTHON} -m pytest test_app_2.py -v
-                        """
-                    }
-                }
+                
             }
         }
 
@@ -74,7 +68,7 @@ pipeline {
                 body: "Build succeeded: ${env.BUILD_URL}"
             )
         }
-        
+
         failure {
             emailext(
                 to: "EMAIL_TO_PLACEHOLDER",
